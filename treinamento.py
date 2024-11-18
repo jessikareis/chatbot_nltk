@@ -131,7 +131,7 @@ intents = {
         "Quais são as taxas de entrega?"
     ],
     "disponibilidade": [
-        "Qual a disponibilidade desse produto?",
+        "Qual a disponibilidade desse produto?", 
         "Quando vocês terão notebooks disponíveis?",
         "Qual a disponibilidade do monitor?",
         "Qual a disponibilidade do mouse?",

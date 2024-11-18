@@ -42,7 +42,7 @@ def preprocess(text):
         tokens = [token for token in tokens if token.isalpha() and token not in stop_words]
     return " ".join(tokens)
 
-# Carregar modelo treinado
+# Carregar modelo treinado 
 modelo_path = "modelo_chatbot.pkl"
 if os.path.exists(modelo_path):
     with open(modelo_path, "rb") as f:
