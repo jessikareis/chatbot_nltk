@@ -59,8 +59,8 @@ def responder(pergunta):
     intent_pred = modelo.predict(pergunta_vectorizada)[0]
     return respostas.get(intent_pred, "Desculpe, não consegui entender. Poderia reformular sua pergunta?")
 
-# Conjunto de perguntas para teste cego
-testes_cegos = [
+# Conjunto de perguntas para teste produção
+testes_producao = [
     ("Quais tipos de laptops vocês têm?", "comprar"),
     ("Quais as especificações de memória?", "informação_produto"),
     ("Vocês parcelam as compras?", "entrega_pagamento"),
@@ -74,10 +74,10 @@ testes_cegos = [
     ("Que tipo de computador recomendam para edição de vídeos?", "recomendacao_produto"),
 ]
 
-# Realizando o teste cego
+# Realizando o teste produção
 acertos = 0
 erros = []
-for pergunta, classe_correta in testes_cegos:
+for pergunta, classe_correta in testes_producao:
     classe_predita = modelo.predict(vectorizer.transform([preprocess(pergunta)]))[0]
     print(f"Pergunta: '{pergunta}' | Classe Correta: '{classe_correta}' | Classe Predita: '{classe_predita}'")
     if classe_predita == classe_correta:
@@ -85,12 +85,12 @@ for pergunta, classe_correta in testes_cegos:
     else:
         erros.append((pergunta, classe_correta, classe_predita))
 
-acuracia_teste_cego = acertos / len(testes_cegos)
-print(f"Acurácia no teste cego: {acuracia_teste_cego:.2f}")
+acuracia_teste_producao = acertos / len(testes_producao)
+print(f"Acurácia no teste produção: {acuracia_teste_producao:.2f}")
 
 # Exibir erros detalhados para análise
 if erros:
-    print("Erros no teste cego:")
+    print("Erros no teste produção:")
     for pergunta, classe_correta, classe_predita in erros:
         print(f"Pergunta: '{pergunta}' | Classe Correta: '{classe_correta}' | Classe Predita: '{classe_predita}'")
 
